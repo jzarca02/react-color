@@ -22,7 +22,8 @@
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "postinstall": "npm run lib"
   },
   "homepage": "http://casesandberg.github.io/react-color/",
   "keywords": [
