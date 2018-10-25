@@ -17,6 +17,7 @@ export const CircleSwatch = ({ title, color, onClick, onSwatchHover, hover, acti
       },
       Swatch: {
         borderRadius: '50%',
+        border: '1px solid lightgray',
         background: 'transparent',
         boxShadow: `inset 0 0 0 ${ circleSize / 2 }px ${ color }`,
         transition: '100ms box-shadow ease',
