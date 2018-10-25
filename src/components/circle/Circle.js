@@ -21,17 +21,20 @@ export const Circle = ({ width, onChange, onSwatchHover, colors, hex, circleSize
     },
   })
 
-  const handleChange = (hexCode, e) => onChange({ hex: hexCode, source: 'hex' }, e)
+  const handleChange = (data, e) => {
+    return onChange({ title: data.title, hex: data.color, source: 'hex' }, e)
+  }
 
   return (
     <div style={ styles.card } className={ `circle-picker ${ className }` }>
       { map(colors, c => (
         <CircleSwatch
-          key={ c }
-          color={ c }
+          key={ c.colorName }
+          title={ c.colorName }
+          color={ c.colorCode }
           onClick={ handleChange }
           onSwatchHover={ onSwatchHover }
-          active={ hex === c.toLowerCase() }
+          active={ hex === c.colorCode.toLowerCase() }
           circleSize={ circleSize }
           circleSpacing={ circleSpacing }
         />
@@ -50,12 +53,22 @@ Circle.defaultProps = {
   width: 252,
   circleSize: 28,
   circleSpacing: 14,
-  colors: [material.red['500'], material.pink['500'], material.purple['500'],
+  /*colors: [material.red['500'], material.pink['500'], material.purple['500'],
     material.deepPurple['500'], material.indigo['500'], material.blue['500'],
     material.lightBlue['500'], material.cyan['500'], material.teal['500'],
     material.green['500'], material.lightGreen['500'], material.lime['500'],
     material.yellow['500'], material.amber['500'], material.orange['500'],
-    material.deepOrange['500'], material.brown['500'], material.blueGrey['500']],
+    material.deepOrange['500'], material.brown['500'], material.blueGrey['500']],*/
+  colors: [
+    {
+      colorName: 'red',
+      colorCode: material.red['500']
+    },
+    {
+      colorName: 'pink',
+      colorCode: material.pink['500']
+    }
+  ]
 }
 
 export default ColorWrap(Circle)

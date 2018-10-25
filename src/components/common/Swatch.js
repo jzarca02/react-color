@@ -24,7 +24,7 @@ export const Swatch = ({ color, style, onClick = () => {}, onHover, title = colo
     },
   })
 
-  const handleClick = e => onClick(color, e)
+  const handleClick = e => onClick({title, color}, e)
   const handleKeyDown = e => e.keyCode === ENTER && onClick(color, e)
   const handleHover = e => onHover(color, e)
 

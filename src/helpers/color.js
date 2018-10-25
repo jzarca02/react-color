@@ -36,6 +36,7 @@ export default {
     const transparent = hex === '000000' && rgb.a === 0
 
     return {
+      title: data.title,
       hsl,
       hex: transparent ? 'transparent' : `#${ hex }`,
       rgb,
